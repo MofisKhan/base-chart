@@ -16,4 +16,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0 
+      - name: Configure Git
+        run: |
+          git config user.name "Mofis Khan"
+          git config user.email "mofis.khan14@gmail.com"  
 
+      - name: Run base-chart
+        uses: helm/base-chart@v1.16.0
+        env:
+          CR_TOKEN: "${{ secrets.BASE_CHART }}"
